@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Savanna Brew Café</title>   <!-- unique per page -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html"><img src="images/logo.png" alt="Savanna Brew Café logo"></a>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="index.html" >Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+  <h1>Contact &amp; Reservations</h1>
+
+  <div class="contact-layout">
+
+    <!-- LEFT COLUMN: reservation form (first, so it stays on top on mobile) -->
+    <section class="contact-form" id="reservation">
+      <h2>Reserve a Table</h2>
+
+      <form action="#" method="post">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone">
+
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Time</label>
+        <input type="time" id="time" name="time" required>
+
+        <label for="guests">Number of guests</label>
+        <select id="guests" name="guests">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+
+        <fieldset>
+          <legend>Occasion</legend>
+          <span class="radio-option">
+          <input type="radio" id="casual" name="occasion" value="casual" checked>
+          <label for="casual">Casual</label>
+          </span>
+          
+          <span class="radio-option">
+          <input type="radio" id="birthday" name="occasion" value="birthday">
+          <label for="birthday">Birthday</label>
+          </span>
+
+          <span class="radio-option">
+          <input type="radio" id="business" name="occasion" value="business">
+          <label for="business">Business</label>
+          </span>
+        </fieldset>
+
+        <label for="requests">Special requests</label>
+        <textarea id="requests" name="requests" rows="4"></textarea>
+
+        <button type="submit" class="btn">Send Reservation</button>
+      </form>
+    </section>
+
+    <!-- RIGHT COLUMN: hours and contact details -->
+    <section class="contact-info">
+      <h2>Opening Hours</h2>
+      <table class="hours-table">
+        <thead>
+          <tr>
+            <th scope="col">Day</th>
+            <th scope="col">Hours</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Monday to Friday</th>
+            <td>7:00 AM to 9:00 PM</td>
+          </tr>
+          <tr>
+            <th scope="row">Saturday</th>
+            <td>8:00 AM to 10:00 PM</td>
+          </tr>
+          <tr>
+            <th scope="row">Sunday</th>
+            <td>9:00 AM to 6:00 PM</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Find Us</h2>
+      <ul class="contact-details">
+        <li>Address: 14 Coffee Lane, Westlands, Nairobi</li>
+        <li>Phone: +254 700 123 456</li>
+        <li>Email: <a href="mailto:hello@savannabrew.example">hello@savannabrew.example</a></li>
+        <li>Instagram: <a href="https://instagram.com/savannabrew" target="_blank" rel="noopener">@savannabrew</a></li>
+        <li>Facebook: <a href="https://facebook.com/savannabrewcafe" target="_blank" rel="noopener">/savannabrewcafe</a></li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+  <footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h2 class="footer-title">Visit Us</h2>
+      <p>14 Coffee Lane, Westlands, Nairobi</p>
+      <p>+254 700 123 456</p>
+    </div>
+    <div class="footer-col">
+      <h2 class="footer-title">Opening Hours</h2>
+      <p>Mon to Fri: 7:00 AM to 9:00 PM</p>
+      <p>Saturday: 8:00 AM to 10:00 PM</p>
+      <p>Sunday: 9:00 AM to 6:00 PM</p>
+    </div>
+    <div class="footer-col">
+      <h2 class="footer-title">Follow Us</h2>
+      <ul class="social-list">
+        <li><a href="https://instagram.com/savannabrew" target="_blank" rel="noopener">Instagram @savannabrew</a></li>
+        <li><a href="https://facebook.com/savannabrewcafe" target="_blank" rel="noopener">Facebook /savannabrewcafe</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">&copy; 2026 Savanna Brew Café. All rights reserved.</p>
+</footer>
+</body>
+</html>

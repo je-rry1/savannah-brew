@@ -1,0 +1,342 @@
+/* =====================================================
+   SAVANNA BREW CAFÉ - style.css
+   Sections:
+   1. Variables        6. Cards
+   2. Base             7. About page
+   3. Header & nav     8. Menu tables
+   4. Footer           9. Gallery
+   5. Buttons & hero  10. Contact page
+                      11. Animation
+                      12. Responsive (768px and below)
+   ===================================================== */
+
+/* ---------- 1. VARIABLES ---------- */
+:root {
+  --brown: #6F4E37;      /* primary: coffee brown */
+  --cream: #F5E9DA;      /* secondary: cream */
+  --orange: #D9822B;     /* accent: savanna orange */
+  --text: #2B1B12;       /* dark text */
+  --white: #FFFFFF;
+
+  --font-head: "Playfair Display", Georgia, serif;
+  --font-body: "Open Sans", Arial, sans-serif;
+
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(43, 27, 18, 0.15);
+  --max-width: 1100px;
+}
+
+/* ---------- 2. BASE ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;            /* 16px */
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--cream);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+  color: var(--brown);
+  line-height: 1.25;
+}
+h1 { font-size: 2.4rem; margin: 0 0 1rem; }
+h2 { font-size: 1.7rem; margin: 2rem 0 1rem; }
+h3 { font-size: 1.25rem; margin: 0.5rem 0; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--brown); transition: color 0.3s ease; }
+a:hover, a:focus { color: var(--orange); }
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 2px;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+/* ---------- 3. HEADER & NAVIGATION (Flexbox) ---------- */
+/* Flexbox is used for the nav because it is a one-dimensional row. */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: var(--white);
+  border-bottom: 4px solid var(--brown);
+}
+.site-header img { height: 60px; width: auto; }
+
+.nav-list {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-list a {
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.nav-list a:hover,
+.nav-list a:focus { background: var(--orange); color: var(--text); }
+
+/* Current page highlight */
+.nav-list a.active { background: var(--brown); color: var(--white); }
+
+/* ---------- 4. FOOTER ---------- */
+.site-footer {
+  background: var(--text);
+  color: var(--cream);
+  padding: 2.5rem 1.5rem 1rem;
+  margin-top: 2rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.footer-title { color: var(--orange); font-size: 1.2rem; margin: 0 0 0.5rem; }
+.footer-col p, .footer-col ul { margin: 0.25rem 0; }
+.social-list { list-style: none; padding: 0; }
+.site-footer a { color: var(--cream); }
+.site-footer a:hover, .site-footer a:focus { color: var(--orange); }
+.copyright {
+  text-align: center;
+  margin: 2rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(245, 233, 218, 0.25);
+  font-size: 0.9rem;
+}
+
+/* ---------- 5. BUTTONS & HERO ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background: var(--orange);
+  color: var(--text);
+  font: 700 1rem var(--font-body);
+  text-decoration: none;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+.btn:hover, .btn:focus {
+  background: var(--brown);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Hero: text over a background image (dark overlay keeps text readable) */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+  text-align: center;
+  background:
+    linear-gradient(rgba(43, 27, 18, 0.65), rgba(43, 27, 18, 0.65)),
+    url("../images/hero.jpg") center / cover no-repeat;
+  border-radius: var(--radius);
+}
+.hero-content { padding: 2rem 1.25rem; }
+.hero h1 { color: var(--white); font-size: 3rem; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); }
+.tagline { color: var(--cream); font-size: 1.3rem; font-style: italic; margin: 0 0 1.5rem; }
+
+.welcome { max-width: 760px; margin: 0 auto; text-align: center; }
+
+.cta {
+  text-align: center;
+  background: var(--brown);
+  color: var(--cream);
+  padding: 2rem 1.25rem;
+  margin-top: 2.5rem;
+  border-radius: var(--radius);
+}
+.cta h2 { color: var(--white); margin-top: 0; }
+
+/* ---------- 6. CARDS (Flexbox, three equal columns) ---------- */
+.cards { display: flex; gap: 1.5rem; }
+.card {
+  flex: 1;                       /* equal widths */
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(43, 27, 18, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+.card img { width: 100%; height: 200px; object-fit: cover; }
+.card h3, .card p { padding: 0 1rem; }
+.card .price { font-weight: 700; color: var(--brown); padding-bottom: 1rem; }
+
+/* ---------- 7. ABOUT PAGE ---------- */
+.two-col { display: flex; gap: 2.5rem; align-items: center; }
+.two-col > img { flex: 0 0 320px; }
+.two-col > article { flex: 1; }
+.owner-img {
+  width: 320px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid var(--white);
+  box-shadow: var(--shadow);
+}
+.values-list { list-style: none; padding: 0; display: grid; gap: 1rem; }
+.values-list li {
+  background: var(--white);
+  padding: 1rem 1.25rem;
+  border-left: 5px solid var(--orange);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+blockquote {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  background: var(--white);
+  border-left: 6px solid var(--orange);
+  font-family: var(--font-head);
+  font-size: 1.25rem;
+  font-style: italic;
+}
+blockquote p { margin: 0 0 0.5rem; }
+blockquote footer { font: 600 0.95rem var(--font-body); font-style: normal; color: var(--brown); }
+
+/* ---------- 8. MENU & HOURS TABLES ---------- */
+.table-wrap { overflow-x: auto; }   /* scroll inside the wrapper on phones */
+
+.menu-table, .hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  box-shadow: 0 2px 8px rgba(43, 27, 18, 0.12);
+}
+.menu-table { min-width: 380px; }   /* forces scroll inside .table-wrap on very small screens */
+.menu-table th, .menu-table td,
+.hours-table th, .hours-table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(111, 78, 55, 0.2);
+}
+thead th { background: var(--brown); color: var(--white); }          /* header row */
+tbody th { font-weight: 600; background: none; color: var(--text); } /* row headings */
+tbody tr:nth-child(even) { background: var(--cream); }               /* zebra */
+tbody tr { transition: background 0.2s ease; }
+tbody tr:hover { background: #F1D3AE; }                              /* row hover */
+.menu-table th:last-child, .menu-table td:last-child { text-align: right; } /* prices */
+
+/* ---------- 9. GALLERY (CSS Grid) ---------- */
+/* Grid is used here because the images form rows AND columns. */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.gallery-grid figure {
+  margin: 0;
+  overflow: hidden;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(43, 27, 18, 0.12);
+}
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;              /* fill the cell with no distortion */
+  transition: transform 0.4s ease;
+}
+.gallery-grid figure:hover img { transform: scale(1.1); }
+.gallery-grid figcaption { padding: 0.6rem 0.8rem; font-size: 0.95rem; text-align: center; background: var(--white); position: relative; }
+
+/* ---------- 10. CONTACT PAGE ---------- */
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+.contact-form, .contact-info { background: var(--white); padding: 1.5rem; border-radius: var(--radius); box-shadow: 0 2px 8px rgba(43, 27, 18, 0.12); }
+.contact-layout > * { min-width: 0; }   /* stops wide inputs/tables stretching the grid on phones */
+.contact-form h2, .contact-info h2 { margin-top: 0; }
+.contact-info h2:not(:first-child) { margin-top: 1.75rem; }
+
+.contact-form label { display: block; margin: 1rem 0 0.3rem; font-weight: 600; }
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form input[type="date"],
+.contact-form input[type="time"],
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  font: inherit;
+  color: var(--text);
+  border: 2px solid rgba(111, 78, 55, 0.4);
+  border-radius: 8px;
+  background: var(--white);
+  transition: border-color 0.3s ease;
+}
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+  outline: 3px solid var(--orange);
+  border-color: var(--orange);
+}
+.contact-form fieldset { margin: 1.25rem 0 0; padding: 0.75rem 1rem 1rem; border: 2px solid rgba(111, 78, 55, 0.4); border-radius: 8px; }
+.contact-form legend { padding: 0 0.5rem; font-weight: 600; }
+.radio-option { display: inline-block; white-space: nowrap; margin: 0 1rem 0.25rem 0; }   /* keeps each radio next to its label */
+.contact-form fieldset label { display: inline-block; margin: 0 0 0 0.25rem; font-weight: 400; }
+.contact-form input[type="radio"] { width: auto; accent-color: var(--brown); }
+.contact-form .btn { margin-top: 1.5rem; }
+
+.contact-details { list-style: none; padding: 0; margin: 0; }
+.contact-details li { padding: 0.4rem 0; border-bottom: 1px solid rgba(111, 78, 55, 0.15); }
+
+/* ---------- 11. ANIMATION (bonus): fade-in hero text ---------- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-content { animation: fadeUp 1s ease both; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-content { animation: none; }
+  * { transition: none !important; }
+}
+
+/* ---------- 12. RESPONSIVE ---------- */
+/* Tablet: gallery drops to 2 columns */
+@media (max-width: 1024px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* 768px and below: stack nav, cards, columns, footer */
+@media (max-width: 768px) {
+  h1 { font-size: 1.9rem; }
+  .hero h1 { font-size: 2.2rem; }
+
+  .site-header { flex-direction: column; gap: 0.75rem; }
+  .nav-list { flex-direction: column; align-items: stretch; text-align: center; width: 100%; }
+
+  .cards { flex-direction: column; }
+  .two-col { flex-direction: column; }
+  .two-col > img { flex: none; }
+  .owner-img { width: 240px; }
+  .contact-layout { grid-template-columns: minmax(0, 1fr); }   /* form is first in the HTML */
+  .menu-table th, .menu-table td, .hours-table th, .hours-table td { padding: 0.6rem 0.65rem; }
+  .contact-form, .contact-info { padding: 1.25rem 1rem; }
+  .footer-grid { grid-template-columns: 1fr; text-align: center; }
+}
+
+/* Phones: gallery drops to 1 column */
+@media (max-width: 600px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+}
